@@ -1,6 +1,8 @@
 package com.example.telemath;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,5 +27,10 @@ public class Indicaciones extends AppCompatActivity {
             //para regresar al MainActivity ya creado
             finish();
         });*/
+    }
+
+    public void irACalcular(View view) {
+        Intent intent = new Intent(this, Calculator.class);
+        startActivity(intent);
     }
 }
