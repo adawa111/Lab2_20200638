@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void cambiarColorBoton(int color) {
         Button botonA = findViewById(R.id.button22);
-        botonA.setBackgroundColor(color);
+        botonA.setTextColor(color);
     }
 
 

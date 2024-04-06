@@ -50,8 +50,8 @@
 
     <Button
         android:id="@+id/button22"
-        android:layout_width="340dp"
-        android:layout_height="114dp"
+        android:layout_width="314dp"
+        android:layout_height="83dp"
         android:backgroundTint="#004A8526"
         android:nestedScrollingEnabled="true"
         android:text="TeleMath"
@@ -60,10 +60,10 @@
         android:textColorLink="#9E8B8B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674"
+        app:layout_constraintVertical_bias="0.648"
         app:strokeColor="#786E6E" />
 
     <Button
@@ -76,10 +76,10 @@
         android:textColorLink="#837676"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.835" />
+        app:layout_constraintVertical_bias="0.778" />
 
     <Button
         android:id="@+id/button2"
@@ -90,9 +90,9 @@
         android:text="CALCULAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956" />
+        app:layout_constraintVertical_bias="0.891" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
