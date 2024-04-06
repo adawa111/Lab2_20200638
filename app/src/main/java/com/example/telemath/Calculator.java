@@ -2,6 +2,7 @@ package com.example.telemath;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ public class Calculator extends AppCompatActivity {
     int digitos = 0;
     String operation = "";
     int sumando = 1;
+    double factor = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -34,14 +36,20 @@ public class Calculator extends AppCompatActivity {
         // Obtener el texto del botón presionado
         String textoBoton = botonPresionado.getText().toString();
         String textovista = textViewNumero.getText().toString();
+        Log.d("msg",textovista);
+
         String textovista2  = textViewNumero2.getText().toString();
+        Log.d("msg",textovista2);
         if(sumando == 1){
             try {
                 // Convertir el texto a un entero usando el método parseInt de la clase Integer
                 int entero = Integer.parseInt(textoBoton);
                 int numeroprevio  = Integer.parseInt(textovista);
-                int numero_ahora = numeroprevio*10^digitos + entero;
-                String numero_texto = "" +numero_ahora;
+                int numero_ahora = numeroprevio*(int) Math.pow(10, digitos)+ entero;
+                String number = String.valueOf(numero_ahora);
+                factor = Double.parseDouble(number);
+                String numero_texto = String.valueOf(numero_ahora);
+                Log.d("msg",numero_texto);
                 // Mostrar el texto en el TextView
                 textViewNumero.setText(numero_texto);
 
@@ -54,17 +62,16 @@ public class Calculator extends AppCompatActivity {
                 // Convertir el texto a un entero usando el método parseInt de la clase Integer
                 int entero = Integer.parseInt(textoBoton);
                 int numeroprevio1  = Integer.parseInt(textovista2);
-                int numero_ahora1 = numeroprevio1*10^digitos + entero;
-                String numero_texto1 = "" +numero_ahora1;
+                int numero_ahora1 = numeroprevio1* (int) Math.pow(10, digitos)+ entero;
+                String numero_texto1 = String.valueOf(numero_ahora1);
+                Log.d("msg",numero_texto1);
                 // Mostrar el texto en el TextView
-                textViewNumero.setText(numero_texto1);
+                textViewNumero2.setText(numero_texto1);
 
                 digitos = digitos +1;
             } catch (NumberFormatException e) {
             }
         }
-
-
     }
 
     public void seleccionarOperacion(View view) {
@@ -83,6 +90,7 @@ public class Calculator extends AppCompatActivity {
             int numeroprevio  = Integer.parseInt(textovista);
             String ope = numeroprevio+textoBoton;
             operation = textoBoton;
+            Log.d("msg",operation);
             // Mostrar el texto en el TextView
             textViewNumero.setText(ope);
 
@@ -105,21 +113,27 @@ public class Calculator extends AppCompatActivity {
             double numero1suma  = Integer.parseInt(sumando1string);
             double numero2suma = Integer.parseInt(sumando2string);
             double result = 0;
+            Log.d("msg","total entra factor:");
+            Log.d("msg",String.valueOf(factor));
 
             if(operation.equals("+")){
-                result  = numero1suma+numero2suma;
-
+                result  = factor+numero2suma;
             } else if (operation.equals("-")) {
-                result = numero1suma-numero2suma;
+                result = factor-numero2suma;
             } else if (operation.equals("/")) {
-                result = numero1suma/numero2suma;
+                result = factor/numero2suma;
             } else if (operation.equals("*")) {
-                result = numero1suma*numero2suma;
+                result = factor*numero2suma;
             }
-            String operacionpasada =  sumando1string+operation+sumando2string;
-            String resulttexto = ""+result;
-            sumando1.setText(operacionpasada);
+            factor = result;
+            Log.d("msg","Factor luego:");
+            String factoresultante = String.valueOf(factor);
+            Log.d("msg",factoresultante);
+            String resulttexto = String.valueOf(result);
+            Log.d("msg",resulttexto);
+            sumando1.setText("0");
             sumando2.setText(resulttexto);
+            operation = "";
 
         } catch (NumberFormatException e) {
         }
@@ -129,23 +143,14 @@ public class Calculator extends AppCompatActivity {
 
     public void clear(View view) {
         digitos = 0;
+        operation = "";
+        sumando = 1;
+        factor = 0;
         Button botonOperador = (Button) view;
         TextView textViewNumero = findViewById(R.id.textView3);
+        TextView textViewNumero2 = findViewById(R.id.textView8);
 
-        // Obtener el texto del botón presionado
-        String textoBoton = botonOperador.getText().toString();
-        String textovista = textViewNumero.getText().toString();
-
-
-        try {
-            // Convertir el texto a un entero usando el método parseInt de la clase Integer
-            int numeroprevio  = Integer.parseInt(textovista);
-            String ope = numeroprevio+textoBoton;
-            operation = textoBoton;
-            // Mostrar el texto en el TextView
-            textViewNumero.setText(ope);
-
-        } catch (NumberFormatException e) {
-        }
+        textViewNumero2.setText("0");
+        textViewNumero.setText("0");
     }
 }

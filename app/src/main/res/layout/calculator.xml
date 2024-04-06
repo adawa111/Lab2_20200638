@@ -50,14 +50,14 @@
             android:id="@+id/textView3"
             android:layout_width="378dp"
             android:layout_height="60dp"
-            android:text="Sumando1"
+            android:text="0"
             android:textAlignment="viewEnd" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="380dp"
             android:layout_height="59dp"
-            android:text="Sumando 2"
+            android:text="0"
             android:textAlignment="viewEnd" />
 
         <LinearLayout
